@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/Sample.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            getAll();
+            $('#cmdSearch').click(function () {
+                search();
+            })
+        })
+        var baseurl = 'employeedata';
+
+        function getAll() {
+            //  load the table with all the data
+            $.getJSON(baseurl, function (data) {
+                buildTable(data.Employees);
+                $('#authinfo').html('Authenticated: ' + data.IsAuthenticated + '<br />' +
+                                    'User: '  + data.Name + '<br />' +
+                                    'Auth-Type: ' + data.AuthenticationType + '<br />');
+            });
+        }
+
+        function search() {
+            // find the value user searched for
+            var searchValue = $('#txtSearch').val();
+
+            $.getJSON(baseurl + '/' + searchValue, function (data) {
+                buildTable(data.Employees);
+                $('#authinfo').html('Authenticated: ' + data.IsAuthenticated + '<br />' +
+                                    'User: ' + data.Name + '<br />' +
+                                    'Auth-Type: ' + data.AuthenticationType + '<br />');
+            });
+        }
+        function buildTable(employees) {
+            $('tbody').empty();
+            for (var i = 0; i < employees.length; i++) {
+                if (i % 2 == 0) {
+                    $('tbody').append('<tr class="even">' +
+                        '<td>' + employees[i].ID + '</td>' +
+                        '<td>' + employees[i].FirstName + '</td>' +
+                        '<td>' + employees[i].LastName + '</td>' +
+                        '</tr>');
+                }
+                else {
+                    $('tbody').append('<tr class="odd">' +
+                        '<td>' + employees[i].ID + '</td>' +
+                        '<td>' + employees[i].FirstName + '</td>' +
+                        '<td>' + employees[i].LastName + '</td>' +
+                        '</tr>');
+                }
+            }
+        }
+    </script>
+</head>     
+<body>
+    <div class="search">
+        <span class="search-text">Search Employees: </span>
+        <input type="search" id="txtSearch" />
+        <input type="button" value="Search" id="cmdSearch" />
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="odd">
+                <td class="id">5</td>
+                <td>Mike</td>
+                <td>Rissen</td>
+            </tr>
+        </tbody>
+    </table>
+   <small id="authinfo"></small>
+</body>
+</html>

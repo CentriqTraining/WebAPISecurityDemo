@@ -1,0 +1,84 @@
+﻿body {
+    background: #0094ff;
+    font: 1em/1.1 trebuchet ms, verdana, sans-serif;
+    color: #fff;
+}
+
+table {
+    /*box-sizing: border-box;*/
+    overflow: hidden;
+    margin: 1.5em auto 1em auto;
+    border-collapse: collapse;
+    min-width: 23em;
+    width: 70%;
+    max-width: 56em;
+    border-radius: 5px;
+    border: 2px inset black;
+    box-shadow: 0 0 .5em #000;
+}
+
+thead {
+    background: linear-gradient(#606062, #28262b);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+th {
+    text-align: left;
+    border: 2px groove black;
+    padding: 3px 10px 3px 10px;
+}
+
+
+td.id {
+    width: 10%;
+}
+
+td {
+    width: 40%;
+    border: 2px groove black;
+    padding: 3px 10px 3px 10px;
+    color: #4800ff;
+}
+
+.odd {
+    background: linear-gradient(#fbfbfb 1px, #ddd 1px, #ccc calc(100% - 1px), #999 calc(100% - 1px));
+}
+
+.even {
+    background: linear-gradient(#eee 1px, #bbb 1px, #aaa calc(100% - 1px), #999 calc(100% - 1px));
+}
+
+.search {
+    padding: 20px 0 0 26px;
+    margin-right: 0;
+}
+
+.search-text {
+    padding-right: 6px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+input[type='search'] {
+    width: 225px;
+    height: 42px;
+    border-radius: 10px 0 0 10px;
+    border-width: 1px;
+    /*box-shadow: 4px 4px #606062;*/
+    padding-left: 15px;
+    font-size: 26px;
+}
+
+#cmdSearch {
+    width: 80px;
+    height: 42px;
+    border-radius: 0 10px 10px 0;
+    border-width: 1px;
+    margin-left: -5px;
+    margin-top: 1px;
+    font-size: 16px;
+    vertical-align: top;
+}
