@@ -40,14 +40,14 @@
             for (var i = 0; i < employees.length; i++) {
                 if (i % 2 == 0) {
                     $('tbody').append('<tr class="even">' +
-                        '<td>' + employees[i].ID + '</td>' +
+                        '<td class="id">' + employees[i].ID + '</td>' +
                         '<td>' + employees[i].FirstName + '</td>' +
                         '<td>' + employees[i].LastName + '</td>' +
                         '</tr>');
                 }
                 else {
                     $('tbody').append('<tr class="odd">' +
-                        '<td>' + employees[i].ID + '</td>' +
+                        '<td class="id">' + employees[i].ID + '</td>' +
                         '<td>' + employees[i].FirstName + '</td>' +
                         '<td>' + employees[i].LastName + '</td>' +
                         '</tr>');
@@ -71,11 +71,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="odd">
-                <td class="id">5</td>
-                <td>Mike</td>
-                <td>Rissen</td>
-            </tr>
         </tbody>
     </table>
     <small id="authinfo"></small>
